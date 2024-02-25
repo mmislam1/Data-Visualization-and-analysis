@@ -16,4 +16,13 @@ consumptionStyle=temp.groupby('year',as_index=False).count()
 
 
 print(consumptionStyle)
-sb.barplot(data=consumptionStyle, x='year',y='case')
+sb.lineplot(data=consumptionStyle, x='year',y='case')
+
+
+temp=df[['state','case']]
+shootingPerState=temp.groupby('state',as_index=False).count()
+
+
+print(shootingPerState)
+sb.set(rc = {'figure.figsize':(39,4)})
+sb.barplot(data=shootingPerState, x='state',y='case')
